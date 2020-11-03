@@ -37,12 +37,13 @@ router.post('/', (req, res, next) => {
                             expiresIn: '1d'
                         }),
                         verified: false,
-                        otp: ''
+                        otp: crypto({length: 6, type: 'numeric'})
                     });
                     user.save()
                     .then(result => {
+                        TemplateService.userOtpTemplate(result);
                         res.status(200).json({
-                            message: "Account Created Successfully",
+                            message: "Account Created Successfully, OTP sent to admin's email",
                             userDetails: {
                                 email: result.email,
                                 token: result.token
@@ -64,23 +65,21 @@ router.post('/:token', (req, res, next) => {
     try {
         const decoded = jwt.verify(req.params.token, process.env.SECRET_KEY);
         if(decoded) {
-            const otp = crypto({length: 6, type: 'numeric'});
-            User.update({token: req.params.token}, {$set: {verified: true, otp: otp}})
-            .exec()
-            .then(result => {
-                User.findOne({ token: req.params.token })
+                User.findOne({ otp: req.body.otp, email: req.body.email })
                 .exec()
-                .then(user => {
-                    console.log(user);
-                    TemplateService.userOtpTemplate(user);
-                    res.status(200).json({
-                        message: 'User Verified Successfully!',
-                        user: user,
-                        verified: result.verified
-                    })
+                .then(result => {
+                    User.update({ email: result.email }, {$set: {verified: true}}).exec();
+                    User.findOne({email: req. body.email})
+                    .exec()
+                    .then(user => res.status(200).json({
+                        message: 'Account verified successfully',
+                        verified: user.verified
+                    }))
                 })
-            });
-        }
+                .catch(err => res.status(500).json({
+                    message: 'Auth failed'
+                }))
+            }
     } catch(err) {
         res.status(401).json({
             message: 'Auth failed'
