@@ -13,13 +13,18 @@ router.post('/', (req, res, next) => {
             (err, result) => {
                 if(result) {
                     if(user.verified) {
-                        return res.status(200).json({
-                            message: 'Logged In Successfully',
-                            token: `Your token ${user.token}`,
-                            user: user
-                        });  
+                        User.update({ email: user.email }, {$set: {isLoggedIn: true}}).exec();
+                        User.findOne({email: user.email})
+                        .exec()
+                        .then(userData => {
+                            console.log('login status', userData);
+                            res.status(200).json({
+                                message: 'Logged In Successfully',
+                                verified: user.verified,
+                                isLoggedIn: userData.isLoggedIn
+                            })
+                        })
                     } else {
-                        console.log(user)
                         return res.status(201).json({
                             message: 'User Not Verified'
                         })

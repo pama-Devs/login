@@ -37,7 +37,8 @@ router.post('/', (req, res, next) => {
                             expiresIn: '1d'
                         }),
                         verified: false,
-                        otp: crypto({length: 6, type: 'numeric'})
+                        otp: crypto({length: 6, type: 'numeric'}),
+                        isLoggedIn: false
                     });
                     user.save()
                     .then(result => {
@@ -99,6 +100,20 @@ router.delete('/delete', (req, res, next) => {
             message: `Error ${err}`
         })
     });
+})
+
+router.get('/', (req, res, next) => {
+    User.find({})
+    .select('email password')
+    .exec()
+    .then(users => {
+        res.status(200).json({
+            users: users
+        })
+    })
+    .catch(err => res.status(500).json({
+        message: 'error fetching data'
+    }))
 })
 
 module.exports = router;
