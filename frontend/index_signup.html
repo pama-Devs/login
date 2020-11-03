@@ -7,7 +7,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="login-reg-panel">
@@ -34,25 +35,13 @@
 			</div>
 			<div class="register-show">
 				<h2>REGISTER</h2>
-				<input type="text" placeholder="Email">
-				<input type="password" id="txtPassword" placeholder="Password">
+				<input type="text" id="reg-email" placeholder="Email">
+				<input type="password" id="reg-password" placeholder="Password">
 				<input type="password" id="txtConfirmPassword" placeholder="Confirm Password">
-				<a class="btn btn-dark" href="verify.html" id="btnSubmit" value="Submit" onclick="return Validate()" type="button" >Register</a>
+				<button class="btn btn-dark"  id="btnSubmit" value="Submit" onclick="Validate()" type="button" >Register</button>
 			</div>
 		</div>
     </div>
-
-    <script type="text/javascript">
-        function Validate() {
-            var password = document.getElementById("txtPassword").value;
-            var confirmPassword = document.getElementById("txtConfirmPassword").value;
-            if (password != confirmPassword) {
-                alert("Passwords do not match.");
-                return false;
-            }
-            return true;
-        }
-    </script>
 
 
     <script>
