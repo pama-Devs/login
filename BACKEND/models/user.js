@@ -18,6 +18,9 @@ const userSchema = mongoose.Schema({
     },
     otp: {
         type: Number
+    },
+    isLoggedIn: {
+        type: Boolean
     }
 });
 
