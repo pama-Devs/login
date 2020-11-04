@@ -21,7 +21,7 @@ function Validate() {
             alert(data.message);
             sessionStorage.setItem('token', data.userDetails.token);
             sessionStorage.setItem('email', data.userDetails.email);
-            window.location.href = "file:///C:/login/frontend/verify.html";
+            window.location.href = "verify.html";
         })
     }
 }
@@ -44,7 +44,7 @@ function verifyOtp() {
         alert(data.message);
         sessionStorage.setItem('verified', data.verified);
         if(data.verified) {
-            window.location.href = "file:///C:/login/frontend/login.html";
+            window.location.href = "login.html";
         }
     })
 }
@@ -62,9 +62,17 @@ function loginUser() {
         body: JSON.stringify(user)
     })
     .then(response => response.json())
-    .then(data => alert(data.message))
+    .then(data => {
+        if(data.verified) {
+            alert(data.message);
+            window.location.href = "main.html";
+        } else{
+            alert(data.message)
+        }});
 }
 
-// window.onload = () => {
-//     sessionStorage.clear();
-// }
+function Logout(){
+    sessionStorage.clear();
+    window.location.href = "index_signup.html";
+}
+
