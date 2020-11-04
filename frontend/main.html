@@ -8,45 +8,162 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        body{
-            background-color: #fff8cd;
-        }
-        nav a{
-            font-size: 20px;
-        }
-    </style>
     <script src="script.js"></script>
 </head>
 <body>
     <div class="container-fluid">
         <nav class="navbar d-flex">
-                    <a class="nav-link" href="#">DR LADDER</a>
-                    <a class="nav-link" href="#">HOME</a>
-                    <div class="form-inline ml-auto">
-                        <button class="btn btn-outline-danger text-right my-2 my-sm-0" type="submit" onclick="Logout()">Log Out</button>
-                    </div>
+            <a class="nav-link" href="#">DR LADDER</a>
+            <a class="nav-link" href="#">HOME</a>
+            <div class="form-inline ml-auto">
+                <button class="btn btn-outline-danger text-right my-2 my-sm-0" type="submit" onclick="Logout()">Log Out</button>
+            </div>
         </nav>
-        
-          
-        <iframe style="width: 100%;height: 600px; border: 1px solid wheat;" src="https://docs.google.com/spreadsheets/d/1pd3jVZU2dEtDC0rc_03E5AcXYQbeGoJvhwB7uy-xxGg/edit?usp=sharing"></iframe>
+        <form class="needs-validation" novalidate>
+            <div class="container">
+                <div class="form-col text-center justify-content-center">
+                    <h2>Recruiter Form Details</h2>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Date</label>
+                        <input type="dat" class="form-control" placeholder="Date (DD-MM-YYYY)" required>
+                        <div class="invalid-feedback">
+                            Please provide a Date.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Recruiter Name" required>
+                        <div class="invalid-feedback">
+                            Please provide a Recruiter name.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Hospital/College</label>
+                        <input type="text" class="form-control" placeholder="Hospital/College Name" required>
+                        <div class="invalid-feedback">
+                            Please provide a Hospital/College name.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Speciality</label>
+                        <input type="text" class="form-control" placeholder="Speciality" required>
+                        <div class="invalid-feedback">
+                            Speciality is required.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Post</label>
+                        <input type="text" class="form-control" placeholder="Post" required>
+                        <div class="invalid-feedback">
+                            Please provide a post.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Candidate Name</label>
+                        <input type="text" class="form-control" placeholder="Candidate Name" required>
+                        <div class="invalid-feedback">
+                            Please provide a Candidate name.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Qualification</label>
+                        <input type="text" class="form-control" placeholder="Qualification" required>
+                        <div class="invalid-feedback">
+                            Please provide a Qualification.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Mobile Number</label>
+                        <input type="text" class="form-control" placeholder="Mobile" required>
+                        <div class="invalid-feedback">
+                            Please provide a Mobile Number.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Experience</label>
+                        <input type="text" class="form-control" placeholder="Experience" required>
+                        <div class="invalid-feedback">
+                            Experience is required.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Current Salary</label>
+                        <input type="text" class="form-control" placeholder="Current Salary" required>
+                        <div class="invalid-feedback">
+                            Please provide a Current Salary.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Current Location</label>
+                        <input type="text" class="form-control" placeholder="Current Location" required>
+                        <div class="invalid-feedback">
+                            Please provide a Current Location.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Languages Known</label>
+                        <input type="text" class="form-control" placeholder="Languages Known" required>
+                        <div class="invalid-feedback">
+                            Languages Known is required.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Expected Salary</label>
+                        <input type="text" class="form-control" placeholder="Expected Salary" required>
+                        <div class="invalid-feedback">
+                            Please provide a Expected Salary.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Preferable Location</label>
+                        <input type="text" class="form-control" placeholder="Preferable Location" required>
+                        <div class="invalid-feedback">
+                            Please provide a Preferable Location.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Family</label>
+                        <input type="text" class="form-control" placeholder="Family Details" required>
+                        <div class="invalid-feedback">
+                            Family Details is required.
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4 mb-3">
+                        <label>Notice Period</label>
+                        <input type="text" class="form-control" placeholder="Notice Period" required>
+                        <div class="invalid-feedback">
+                            Please provide a Notice Period.
+                        </div>
+                    </div>
+                    <div class="form-group offset-md-4 col-md-4 mb-3">
+                        <label>Feedback</label>
+                        <textarea class="form-control" placeholder="Feedback" rows="3"></textarea>
+                        <div class="invalid-feedback">
+                            Feedback is required.
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
-
+    
     <script>
-        $(function(){
-  var str = '#len'; /
-  $(document).ready(function(){
-    var i, stop;
-    i = 1;
-    stop = 4;
-    setInterval(function(){
-      if (i > stop){
-        return;
-      }
-      $('#len'+(i++)).toggleClass('bounce');
-    }, 500)
-  });
-});
-    </script>
+		(function() {
+			'use strict';
+			window.addEventListener('load', function() {
+			var forms = document.getElementsByClassName('needs-validation');
+			var validation = Array.prototype.filter.call(forms, function(form) {
+				form.addEventListener('submit', function(event) {
+				if (form.checkValidity() === false) {
+					event.preventDefault();
+					event.stopPropagation();
+				}
+				form.classList.add('was-validated');
+				}, false);
+			});
+			}, false);
+		})();
+	  </script>
 </body>
 </html>
